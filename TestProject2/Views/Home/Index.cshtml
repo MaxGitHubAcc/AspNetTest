@@ -1,0 +1,38 @@
+﻿@{
+    ViewBag.Title = "Messages";
+}
+
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Сообщения пользователей</title>
+</head>
+<body>
+    <div>
+        <a href="/Home/Create/">Вставить</a>
+        <h3>Список сообщений</h3>
+        <table class="table table-bordered table-hover">
+            <tr>
+                <td><p>ID</p></td>
+                <td><p>Текст</p></td>
+                <td><p>Пользователь</p></td>
+                <td><p>Дата</p></td>
+
+            </tr>
+            @foreach (var msg in ViewBag.Messages)
+            {
+                <tr>
+                    <td><p>@msg.Id </p></td>
+                    <td><p>@msg.MessageText</p></td>
+                    <td><p>@msg.UserName</p></td>
+                    <td><p>@msg.Dt</p></td>
+                    <!--<td><p><p><a href="/Home/Insert/">Вставить</a></p></td> -->
+                </tr>
+            }
+        </table>
+    </div>
+</body>
+</html>

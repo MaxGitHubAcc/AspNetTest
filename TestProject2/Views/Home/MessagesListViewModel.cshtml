@@ -1,0 +1,41 @@
+﻿@model   TestProject2.Models.MessagesViewModel
+@{
+    ViewBag.Title = "MessagesListViewModel";
+}
+
+<h2>MessagesListViewModel</h2>
+
+<form method="get">
+    <div class="form-inline form-group">
+        <label class="control-label">Компания: </label>
+        @Html.DropDownList("Users", Model.Users as SelectList,
+                htmlAttributes: new { @class = "form-control" })
+        <input type="submit" value="Фильтр" class="btn btn-default" />
+    </div>
+</form>
+
+<table class="table table-striped">
+    <tr>
+        <th>Id</th>
+        <th>Текст</th>
+        <th>Дата</th>
+        <th>Пользователь</th>
+    </tr>
+    @foreach (var item in Model.Messages)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MessageText)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Dt)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UserName)
+            </td>
+        </tr>
+    }
+</table>
